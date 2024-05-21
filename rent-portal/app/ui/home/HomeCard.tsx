@@ -89,7 +89,7 @@ export default function HomeCard() {
 
   return (
     <div className="relative flex flex-col sm:h-1/3 sm:w-5/6 bg-wh md:h-1/3 md:w-1/2 rounded-t-md">
-      <header className="flex flex-row items-center justify-between h-20 p-2 shadow-md rounded-md md:mb-16 sm:mb-11 z-10">
+      <header className="flex flex-row items-center justify-between h-20 p-2 shadow-md rounded-md md:mb-16 sm:mb-20 z-10">
         <animated.div
           className={clsx("absolute rounded-md h-16 bg-or -z-10", {
             "left-2": isRentSelected,
