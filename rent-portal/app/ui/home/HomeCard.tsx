@@ -2,7 +2,13 @@
 import clsx from "clsx";
 import Search from "./search-box";
 import { useState, useEffect, useContext } from "react";
-import { animated, config, useSpring, useSpringRef } from "@react-spring/web";
+import {
+  animated,
+  config,
+  useSpring,
+  useSpringRef,
+  useTransition,
+} from "@react-spring/web";
 import { oswald } from "../fonts/fonts";
 import Button from "../Button";
 
@@ -66,6 +72,21 @@ export default function HomeCard() {
     }, 340);
   }
 
+  const transRef = useSpringRef();
+
+  const transitions = useTransition(isRentSelected, {
+    ref: transRef,
+    keys: null,
+    config: { ...config.stiff, duration: 340 },
+    from: { opacity: 0, transform: "translate3d(0,20px,0)", display: "none" },
+    enter: { opacity: 1, transform: "translate3d(0,0,0)", display: "block" },
+    leave: { opacity: 0, transform: "translate3d(0,-20px,0)", display: "none" },
+  });
+
+  useEffect(() => {
+    transRef.start();
+  }, [isRentSelected, transRef]);
+
   return (
     <div className="relative flex flex-col sm:h-1/3 sm:w-5/6 bg-wh md:h-1/3 md:w-1/2 rounded-t-md">
       <header className="flex flex-row items-center justify-between h-20 p-2 shadow-md rounded-md md:mb-16 sm:mb-11 z-10">
@@ -93,12 +114,18 @@ export default function HomeCard() {
           <p className={headerClass}>Place AD</p>
         </div>
       </header>
-      <div className="flex flex-row items-center justify-center w-full">
-        {isRentSelected ? (
-          <Search placeholder="Type something" />
-        ) : (
-          <Button text="Sign in to Continue" width={12} href={"/login"} />
-        )}
+      <div className="flex items-center justify-center w-full">
+        {transitions((styles, isRentSelected) => {
+          return isRentSelected ? (
+            <animated.div style={styles} className="w-full">
+              <Search placeholder="Type something" />
+            </animated.div>
+          ) : (
+            <animated.div style={styles}>
+              <Button text="Sign in to Continue" width={12} href={"/login"} />
+            </animated.div>
+          );
+        })}
       </div>
     </div>
   );
