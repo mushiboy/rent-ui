@@ -78,9 +78,9 @@ export default function HomeCard() {
     ref: transRef,
     keys: null,
     config: { ...config.stiff, duration: 340 },
-    from: { opacity: 0, transform: "translate3d(0,20px,0)", display: "none" },
+    from: { opacity: 0, transform: "translate3d(0,10px,0)", display: "none" },
     enter: { opacity: 1, transform: "translate3d(0,0,0)", display: "block" },
-    leave: { opacity: 0, transform: "translate3d(0,-20px,0)", display: "none" },
+    leave: { opacity: 0, transform: "translate3d(0,-10px,0)", display: "none" },
   });
 
   useEffect(() => {
