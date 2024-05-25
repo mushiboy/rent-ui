@@ -16,17 +16,17 @@ export function NavBar() {
   const [userType, setUserType] = useState<string>("letter");
   return (
     <div>
-      <nav className="bg-bl h-16  flow-row items-center justify-between hidden md:flex ">
+      <nav className="bg-bl h-16  flow-row items-center justify-between hidden md:flex border-b-2 border-or">
         <RHLogo size={"5rem"} name={true} side={true} logo={false} />
         {userType == "letter"
           ? DestructureNavDesktop(navLinksLetter)
           : DestructureNavDesktop(navLinksRenter)}
       </nav>
       <nav className="md:hidden w-full">
-        <div className="bg-bl text-or w-full">
+        <div className="bg-bl text-or w-full fixed top-0 border-b-2 border-or">
           <RHLogo size={"2rem"} name={true} side={true} logo={false} />
         </div>
-        <div className="flex h-10 w-10 z-50">
+        <div className="flex h-10 w-10 z-50 fixed bottom-0 ">
           {userType == "letter"
             ? DestructureNavMobile(navLinksLetter)
             : DestructureNavMobile(navLinksRenter)}
