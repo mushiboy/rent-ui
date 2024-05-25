@@ -12,6 +12,7 @@ const config: Config = {
         bl : '#272727',
         bl2: '#77A6F7',
         gr: '#393E46',
+        gr2: '#454545',
         blu: '#93DEFF',
         wh: '#F2F2F2',
         or: '#D65A31'
