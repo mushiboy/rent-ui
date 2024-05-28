@@ -36,13 +36,6 @@ export const navLinksLetter: Array<NavLink> = [
     solidIcon: UserCircleIcon,
     outlineIcon: UserCircleIconOutline,
   },
-  {
-    key: 4,
-    name: "Sign Out",
-    link: "/signout",
-    solidIcon: ArrowRightStartOnRectangleIcon,
-    outlineIcon: ArrowRightStartOnRectangleIconOutline,
-  },
 ];
 export const navLinksRenter: Array<NavLink> = [
   {

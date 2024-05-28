@@ -1,5 +1,7 @@
+"use client";
 import clsx from "clsx";
 import { oswald } from "../fonts/fonts";
+import Button from "../Button";
 
 export default function NumberCard({
   name,
@@ -26,6 +28,7 @@ export default function NumberCard({
         <h2 className={clsx("text-or text-9xl p-3", oswald.className)}>
           {number}
         </h2>
+        <Button text={"Click to view all ads"} />
       </div>
     </div>
   );

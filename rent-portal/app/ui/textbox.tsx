@@ -18,11 +18,15 @@ export default function TextBox({
   type,
   id,
   context,
+  fullWidth,
+  required,
 }: {
   placeHolder: string;
   type: string;
   id: string;
   context: any;
+  fullWidth?: boolean;
+  required: boolean;
 }) {
   const { value, setValue } = useContext<StringContext>(context);
   const [isSelected, setSelected] = useState(false);
@@ -42,7 +46,12 @@ export default function TextBox({
   };
 
   return (
-    <div className="relative flex items-center justify-center w-2/3 m-2">
+    <div
+      className={clsx(
+        "relative flex items-center justify-center ",
+        fullWidth ? "w-full my-2" : "w-2/3 m-2"
+      )}
+    >
       <animated.input
         ref={inputRef}
         id={id}
@@ -55,6 +64,7 @@ export default function TextBox({
         onBlur={() => setSelected(false)}
         placeholder={value}
         autoComplete={type === "password" ? "current-password" : "email"}
+        required={required}
       />
       <animated.label
         htmlFor={id}

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { NavBar } from "../../ui/navbar/navbar";
+import { NavBar } from "../ui/navbar/navbar";
 
 export const metadata: Metadata = {
   title: "Rent Portal",
@@ -13,9 +13,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="bg-gr2">
+      <body className="bg-gr2 flex">
         <NavBar />
-        {children}
+        <div className="flex-1 overflow-auto">{children}</div>
       </body>
     </html>
   );

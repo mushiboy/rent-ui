@@ -46,6 +46,7 @@ export default function Login() {
               type={"email"}
               id={"sign-in-email"}
               context={EmailContext}
+              required={true}
             />
           </EmailContext.Provider>
           <PasswordContext.Provider value={{ value: pwd, setValue: setPWD }}>
@@ -54,6 +55,7 @@ export default function Login() {
               type={"password"}
               id={"sign-in-pwd"}
               context={PasswordContext}
+              required={true}
             />
           </PasswordContext.Provider>
           <Button text={"Sign in"} type="submit" handleSubmit={handleSubmit} />
